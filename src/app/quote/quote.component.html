@@ -5,4 +5,4 @@
   {{quote.author}}
 </h3>
 
-<button (click)="readAnother()">Read Another</button>
+<button (click)="readAnother()" *ngIf="showButton">Read Another</button>
