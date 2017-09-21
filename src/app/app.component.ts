@@ -11,5 +11,15 @@ export class AppComponent {
     author: 'Miguel Angel Ruiz',
     cat: 'respect'
   };
+
+  public changeQuote() {
+    // Redefine the quote property.
+    this.quote = {
+      quote: 'Identidad propia.',
+      author: 'Cabrales',
+      cat: 'marketing'
+    };
+  }
+
   title = 'app';
 }

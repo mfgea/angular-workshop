@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-quote',
   templateUrl: './quote.component.html',
@@ -7,4 +7,11 @@ import { Component, Input } from '@angular/core';
 export class QuoteComponent {
   // Define a component input binding
   @Input() quote: {quote: string, author: string, cat: string};
+
+  // Define a component output binding, able to emit an event
+  @Output() onQuoteChange = new EventEmitter<any>();
+  // Define a method to control the native 'click' event from the button
+  readAnother(event) {
+    this.onQuoteChange.emit();
+  }
 }
