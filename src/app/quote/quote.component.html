@@ -2,7 +2,7 @@
   {{quote.quote}}
 </h1>
 <h3>
-  {{quote.author}}
+  {{quote.author | uppercase}}
 </h3>
 
 <button (click)="readAnother()" *ngIf="showButton">Read Another</button>
