@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public quote: {quote: string, author: string, cat: string} = {
-    quote: 'Respect is one of the greatest expressions of love.',
-    author: 'Miguel Angel Ruiz',
-    cat: 'respect'
-  };
+  public quote: {quote: string, author: string, cat: string};
+
+  public ngOnInit() {
+    this.quote = {
+      quote: 'Respect is one of the greatest expressions of love.',
+      author: 'Miguel Angel Ruiz',
+      cat: 'respect'
+    };
+  }
 
   public changeQuote() {
     // Redefine the quote property.
