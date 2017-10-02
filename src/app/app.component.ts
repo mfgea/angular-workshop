@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuotesService } from './quotes.service';
 
 @Component({
   selector: 'app-root',
@@ -8,21 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent {
   public quote: {quote: string, author: string, cat: string};
 
+  public constructor(private quotesService: QuotesService) {}
+
   public ngOnInit() {
-    this.quote = {
-      quote: 'Respect is one of the greatest expressions of love.',
-      author: 'Miguel Angel Ruiz',
-      cat: 'respect'
-    };
+    this.changeQuote();
   }
 
   public changeQuote() {
-    // Redefine the quote property.
-    this.quote = {
-      quote: 'Identidad propia.',
-      author: 'Cabrales',
-      cat: 'marketing'
-    };
+    this.quotesService.getQuote()
+      .subscribe((quote: any) => {
+        this.quote=quote;
+      })
   }
 
   title = 'app';
